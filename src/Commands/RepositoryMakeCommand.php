@@ -58,7 +58,7 @@ class RepositoryMakeCommand extends GeneratorCommand
         if (Str::startsWith($model, '\\')) {
             $stub = str_replace('NamespacedDummyModel', trim($model, '\\'), $stub);
         } else {
-            $stub = str_replace('NamespacedDummyModel', $this->laravel->getNamespace().$model, $stub);
+            $stub = str_replace('NamespacedDummyModel', $this->laravel->getNamespace().'Models\\'.$model, $stub);
         }
 
         $model = class_basename(trim($model, '\\'));
@@ -125,7 +125,7 @@ class RepositoryMakeCommand extends GeneratorCommand
     protected function getOptions()
     {
         return [
-            ['model', 'm', InputOption::VALUE_REQUIRED, 'The model that is associated with the repository.'],
+            ['model', 'm', InputOption::VALUE_REQUIRED, 'The model that is associated with the repository.', 'Model'],
             ['type', 't', InputOption::VALUE_OPTIONAL, 'The type of repository being created.', 'database']
         ];
     }
