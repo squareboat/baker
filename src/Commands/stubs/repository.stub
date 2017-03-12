@@ -1,0 +1,16 @@
+<?php
+
+namespace DummyNamespace;
+
+use NamespacedDummyModel;
+use NamespacedDummyContract as DummyContract;
+
+class DummyClass implements DummyContract
+{
+    /**
+     * The model associated with the repository.
+     *
+     * @var \NamespacedDummyModel
+     */
+    private $model = DummyModel::class;
+}

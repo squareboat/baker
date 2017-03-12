@@ -1,0 +1,25 @@
+{
+    "name": "squareboat/baker",
+    "description": "A set of helpers for baking your Laravel Project.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel", "generator", "baker"],
+    "authors": [
+        {
+            "name": "Amit Gupta",
+            "email": "akaamitgupta@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "illuminate/support": "5.3.*|5.4.*",
+        "illuminate/filesystem": "5.3.*|5.4.*",
+        "symfony/console": "~3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "SquareBoat\\Baker\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
