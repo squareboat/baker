@@ -1,0 +1,26 @@
+<?php
+
+namespace DummyNamespace;
+
+use NamespacedDummyRepository;
+
+class DummyClass
+{
+    /**
+     * The dummyRepository repository instance.
+     *
+     * @var \NamespacedDummyRepository
+     */
+    private dummyRepository;
+
+    /**
+     * Create a new service instance.
+     *
+     * @param  \NamespacedDummyRepository $dummyRepository
+     * @return void
+     */
+    public function __construct(DummyRepository $dummyRepository)
+    {
+        $this->dummyRepository = $dummyRepository;
+    }
+}
