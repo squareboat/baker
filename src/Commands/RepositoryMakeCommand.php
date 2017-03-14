@@ -126,6 +126,7 @@ class RepositoryMakeCommand extends GeneratorCommand
     {
         return [
             ['model', 'm', InputOption::VALUE_REQUIRED, 'The model that is associated with the repository.', 'Model'],
+
             ['type', 't', InputOption::VALUE_OPTIONAL, 'The type of repository being created.', 'database']
         ];
     }

@@ -100,7 +100,9 @@ class RepositoryContractMakeCommand extends GeneratorCommand
     {
         return [
             ['repository', 'r', InputOption::VALUE_NONE, 'Create a new repository file for the contract.'],
-            ['model', 'm', InputOption::VALUE_REQUIRED, 'The model that is associated with the repository.'],
+
+            ['model', 'm', InputOption::VALUE_REQUIRED, 'The model that is associated with the repository.', 'Model'],
+
             ['type', 't', InputOption::VALUE_OPTIONAL, 'The type of repository being created.', 'database'],
         ];
     }

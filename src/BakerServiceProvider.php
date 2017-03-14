@@ -24,6 +24,8 @@ class BakerServiceProvider extends ServiceProvider
             $this->commands([
                 \SquareBoat\Baker\Commands\RepositoryContractMakeCommand::class,
                 \SquareBoat\Baker\Commands\RepositoryMakeCommand::class,
+                \SquareBoat\Baker\Commands\ModelMakeCommand::class,
+                \SquareBoat\Baker\Commands\ControllerMakeCommand::class,
             ]);
         }
     }
