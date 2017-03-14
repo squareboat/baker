@@ -5,7 +5,7 @@ namespace SquareBoat\Baker\Commands;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class RepositoryContractMakeCommand extends GeneratorCommand
+class RepositoryContractBakeCommand extends BakerCommand
 {
     /**
      * The console command name.

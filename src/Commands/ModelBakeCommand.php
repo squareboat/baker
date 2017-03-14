@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 use InvalidArgumentException;
 use Symfony\Component\Console\Input\InputOption;
 
-class ModelMakeCommand extends GeneratorCommand
+class ModelBakeCommand extends BakerCommand
 {
     /**
      * The console command name.

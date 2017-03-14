@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class RepositoryMakeCommand extends GeneratorCommand
+class RepositoryBakeCommand extends BakerCommand
 {
     /**
      * The console command name.

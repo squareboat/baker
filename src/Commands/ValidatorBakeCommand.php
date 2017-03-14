@@ -2,7 +2,7 @@
 
 namespace SquareBoat\Baker\Commands;
 
-class ValidatorMakeCommand extends GeneratorCommand
+class ValidatorBakeCommand extends BakerCommand
 {
     /**
      * The console command name.

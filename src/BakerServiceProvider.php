@@ -22,12 +22,12 @@ class BakerServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                \SquareBoat\Baker\Commands\RepositoryContractMakeCommand::class,
-                \SquareBoat\Baker\Commands\RepositoryMakeCommand::class,
-                \SquareBoat\Baker\Commands\ModelMakeCommand::class,
-                \SquareBoat\Baker\Commands\ControllerMakeCommand::class,
-                \SquareBoat\Baker\Commands\ServiceMakeCommand::class,
-                \SquareBoat\Baker\Commands\ValidatorMakeCommand::class,
+                \SquareBoat\Baker\Commands\RepositoryContractBakeCommand::class,
+                \SquareBoat\Baker\Commands\RepositoryBakeCommand::class,
+                \SquareBoat\Baker\Commands\ModelBakeCommand::class,
+                \SquareBoat\Baker\Commands\ControllerBakeCommand::class,
+                \SquareBoat\Baker\Commands\ServiceBakeCommand::class,
+                \SquareBoat\Baker\Commands\ValidatorBakeCommand::class,
             ]);
         }
     }
