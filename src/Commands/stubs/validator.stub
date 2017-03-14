@@ -1,0 +1,18 @@
+<?php
+
+namespace DummyNamespace;
+
+class DummyClass extends Validator
+{
+	/**
+	 * Validation rules.
+	 * 
+	 * @param  string $type
+	 * @param  array $data
+	 * @return array
+	 */
+	protected function rules($type, array $data)
+	{
+		// 
+	}
+}

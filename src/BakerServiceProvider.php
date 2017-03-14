@@ -27,6 +27,7 @@ class BakerServiceProvider extends ServiceProvider
                 \SquareBoat\Baker\Commands\ModelMakeCommand::class,
                 \SquareBoat\Baker\Commands\ControllerMakeCommand::class,
                 \SquareBoat\Baker\Commands\ServiceMakeCommand::class,
+                \SquareBoat\Baker\Commands\ValidatorMakeCommand::class,
             ]);
         }
     }
