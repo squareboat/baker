@@ -70,7 +70,7 @@ abstract class BakerCommand extends Command
 
         $this->files->put($path, $this->buildClass($name));
 
-        $this->info($this->type.' created successfully.');
+        $this->info($this->type.' baked successfully.');
     }
 
     /**
