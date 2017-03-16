@@ -44,7 +44,7 @@ class BakeCommand extends Command
      * @return void
      */
     private function bakeTheCake() {
-        $this->bakeMigration();
+        // $this->bakeMigration();
 
         $this->bakeModel();
 
@@ -79,10 +79,8 @@ class BakeCommand extends Command
      */
     protected function bakeModel()
     {
-        $table = Str::plural(Str::snake(class_basename($this->argument('name'))));
-
         $this->call('bake:model', [
-            'name' => $table
+            'name' => $this->argument('name')
         ]);
     }
 
