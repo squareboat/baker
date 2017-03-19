@@ -34,7 +34,7 @@ A model at `app/Models/Order.php`.
 
 A Repository Contract at `app/Repositories/Contracts/OrderRepository.php`.
 
-A Repository Contract at `app/Repositories/Database/OrderRepository.php`.
+A Repository at `app/Repositories/Database/OrderRepository.php`.
 
 A Validator at `app/Validators/OrderValidator.php`.
 
