@@ -4,6 +4,7 @@ namespace SquareBoat\Baker\Commands;
 
 use Illuminate\Support\Str;
 use Illuminate\Console\Command;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
 class BakeCommand extends Command
@@ -40,7 +41,7 @@ class BakeCommand extends Command
 
     /**
      * Bakes the cake.
-     * 
+     *
      * @return void
      */
     private function bakeTheCake() {
@@ -48,13 +49,13 @@ class BakeCommand extends Command
 
         $this->bakeModel();
 
-        $this->bakeRepository();
+        $this->option('no-repo') ?: $this->bakeRepository();
 
-        $this->bakeValidator();
+        $this->option('no-validator') ?: $this->bakeValidator();
 
-        $this->bakeService();
+        $this->option('no-service') ?: $this->bakeService();
 
-        $this->bakeController();
+        $this->option('no-controller') ?: $this->bakeController();
     }
 
     /**
@@ -91,12 +92,18 @@ class BakeCommand extends Command
      */
     protected function bakeRepository()
     {
-        $repository = Str::studly(class_basename($this->argument('name')));
+        $modelName = $this->argument('name');
+
+        $repoName = $this->option('repo') ?: $modelName;
+
+        $repository = Str::studly(class_basename($repoName));
+
+        $model = Str::studly(class_basename($modelName));
 
         $this->call('bake:repository-contract', [
             'name' => "{$repository}Repository",
             '--repository' => true,
-            '--model' => $repository,
+            '--model' => $model,
         ]);
     }
 
@@ -107,7 +114,9 @@ class BakeCommand extends Command
      */
     protected function bakeValidator()
     {
-        $validator = Str::studly(class_basename($this->argument('name')));
+        $validatorName = $this->option('validator') ?: $this->argument('name');
+
+        $validator = Str::studly(class_basename($validatorName));
 
         $this->call('bake:validator', [
             'name' => "{$validator}Validator"
@@ -121,11 +130,17 @@ class BakeCommand extends Command
      */
     protected function bakeService()
     {
-        $service = Str::studly(class_basename($this->argument('name')));
+        $serviceName = $this->option('service') ?: $this->argument('name');
+
+        $repoName = $this->option('repo') ?: $this->argument('name');
+
+        $service = Str::studly(class_basename($serviceName));
+
+        $repo = Str::studly(class_basename($repoName));
 
         $this->call('bake:service', [
             'name' => "{$service}Service",
-            '--repository' => "{$service}Repository",
+            '--repository' => "{$repo}Repository",
         ]);
     }
 
@@ -136,7 +151,9 @@ class BakeCommand extends Command
      */
     protected function bakeController()
     {
-        $controller = Str::studly(class_basename($this->argument('name')));
+        $controllerName = $this->option('controller') ?: $this->argument('name');
+
+        $controller = Str::studly(class_basename($controllerName));
 
         $this->call('bake:controller', [
             'name' => "{$controller}Controller",
@@ -145,16 +162,16 @@ class BakeCommand extends Command
 
     /**
      * Get the baked cake.
-     * 
+     *
      * @return string
      */
     private function cake()
     {
         return <<<EOF
              ,,,,,
-            _|||||_ 
+            _|||||_
            {~*~*~*~}
-         __{*~*~*~*}__ 
+         __{*~*~*~*}__
         `-------------`
 EOF;
     }
@@ -168,6 +185,26 @@ EOF;
     {
         return [
             ['name', InputArgument::REQUIRED, 'The name of the cake'],
+        ];
+    }
+
+    /**
+     * Get the console command options.
+     *
+     * @return array
+     */
+    protected function getOptions()
+    {
+        return [
+            ['service', 'serv', InputOption::VALUE_REQUIRED, 'Bake service with this name'],
+            ['repo', 'rep', InputOption::VALUE_REQUIRED, 'Bake repository with this name'],
+            ['validator', 'val', InputOption::VALUE_REQUIRED, 'Bake validator with this name'],
+            ['controller', 'con', InputOption::VALUE_REQUIRED, 'Bake controller with this name'],
+
+            ['no-service', 'no-serv', InputOption::VALUE_NONE, 'Don\'t bake service'],
+            ['no-repo', 'no-rep', InputOption::VALUE_NONE, 'Don\'t bake repository'],
+            ['no-validator', 'no-val', InputOption::VALUE_NONE, 'Don\'t bake validator'],
+            ['no-controller', 'no-con', InputOption::VALUE_NONE, 'Don\'t bake controller'],
         ];
     }
 }
