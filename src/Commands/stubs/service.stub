@@ -11,7 +11,7 @@ class DummyClass
      *
      * @var \NamespacedDummyRepository
      */
-    private dummyRepository;
+    private $dummyRepository;
 
     /**
      * Create a new service instance.
