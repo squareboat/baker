@@ -42,6 +42,28 @@ A Service at `app/Services/OrderService.php`.
 
 A Controller at `app/Http/Controllers/OrderController.php`.
 
+### You can also use the options
+
+1. Bake with a different name
+
+`--repository="MyOrder"` to make a service with the name **MyOrderRepository**
+
+`--validator="MyOrder"` to make a service with the name **MyOrderValidator**
+
+`--service="MyOrder"` to make a service with the name **MyOrderService**
+
+`--controller="MyOrder"` to make a service with the name **MyOrderController**
+
+2. Avoid baking of some classes
+
+`--no-repository` to not bake repository along with the model
+
+`--no-validator` to not bake validator along with the model
+
+`--no-service` to not bake service along with the model
+
+`--no-controller` to not bake controller along with the model
+
 ## Security
 
 If you discover any security related issues, please email amit.gupta@squareboat.com instead of using the issue tracker.
