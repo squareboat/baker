@@ -55,7 +55,7 @@ class ServiceBakeCommand extends BakerCommand
         if (Str::startsWith($repository, '\\')) {
             $stub = str_replace('NamespacedDummyRepository', trim($repository, '\\'), $stub);
         } else {
-            $stub = str_replace('NamespacedDummyRepository', $this->laravel->getNamespace().'Repository\Contracts\\'.$repository, $stub);
+            $stub = str_replace('NamespacedDummyRepository', $this->laravel->getNamespace().'Repositories\Contracts\\'.$repository, $stub);
         }
 
         $repository = class_basename(trim($repository, '\\'));
