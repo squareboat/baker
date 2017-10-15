@@ -17,7 +17,9 @@ $ composer require squareboat/baker
 
 ### Configure Laravel
 
-Once installation operation is complete, simply add the service provider to your project's `config/app.php` file:
+> If you are using __laravel 5.5__ or higher then you should skip this step.
+
+If you are using laravel 5.4 or 5.3, simply add the service provider to your project's `config/app.php` file:
 
 #### Service Provider
 ```
